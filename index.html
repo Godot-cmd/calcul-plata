@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator datorie închiriere scuter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>💸 Calculator datorie client</h2>
+
+    <label for="startDate">Data început:</label>
+    <input type="date" id="startDate" />
+
+    <label for="endDate">Data sfârșit:</label>
+    <input type="date" id="endDate" />
+
+    <label for="weeklyPayment">Sumă pe săptămână (lei):</label>
+    <input type="number" id="weeklyPayment" placeholder="Ex: 305" />
+
+    <label for="paidAmount">Sumă plătită (lei):</label>
+    <input type="number" id="paidAmount" placeholder="Ex: 400" />
+
+    <button id="calcBtn">Calculează</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
