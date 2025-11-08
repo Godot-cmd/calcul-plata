@@ -10,6 +10,7 @@ function calculeazaDatoria() {
   const endInput = document.getElementById("endDate").value;
   const weekly = parseFloat(document.getElementById("weeklyPayment").value);
   const paid = parseFloat(document.getElementById("paidAmount").value) || 0;
+  const deposit = parseFloat(document.getElementById("deposit").value) || 0;
 
   if (!startInput || !endInput || isNaN(weekly)) {
     document.getElementById("result").innerText =
@@ -33,16 +34,19 @@ function calculeazaDatoria() {
 
   const dailyRate = weekly / 7;
   const total = fullWeeks * weekly + remainingDays * dailyRate;
-  const remaining = Math.max(0, total - paid);
+
+  const remaining = Math.max(0, total - paid - deposit);
 
   document.getElementById("result").innerHTML = `
     <div class="info-line">📅 Perioadă: <strong>${formatDate(start)}</strong> – <strong>${formatDate(end)}</strong></div>
     <div class="info-line">⏱ Durată: ${fullWeeks} săptămână(i) și ${remainingDays} zi(le)</div>
     <div class="info-line">💰 Total de plată: <strong>${total.toFixed(2)} lei</strong></div>
     <div class="info-line">💵 Plătit: <strong>${paid.toFixed(2)} lei</strong></div>
+    <div class="info-line">🏦 Garanție: <strong>${deposit.toFixed(2)} lei</strong></div>
     <div class="info-line">🧾 <span class="highlight">Rest de plată: ${remaining.toFixed(2)} lei</span></div>
   `;
 }
+
 
 // 🔹 Trigger Calculează when Enter key is pressed
 document.addEventListener("keydown", function (event) {
